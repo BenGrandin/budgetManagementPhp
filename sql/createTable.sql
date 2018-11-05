@@ -31,4 +31,6 @@ CREATE TABLE operation (
 	dateOperation date NOT NULL,
 	PRIMARY KEY (id)
 )
-ENGINE=INNODB DEFAULT CHARSET="utf-8" 
+ENGINE=INNODB DEFAULT CHARSET="utf-8"
+
+/* Create bankAccount */ 
