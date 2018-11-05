@@ -1,4 +1,6 @@
-/* Create table user */
+USE DATABASE budgetManagementPhp
+
+-- Create table user
 CREATE TABLE user (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     IdUser INT UNSIGNED NOT NULL ,
@@ -6,36 +8,36 @@ CREATE TABLE user (
     PRIMARY KEY (id)
     )
     CHARACTER SET "utf8"
-    ENGINE = INNODB DEFAULT
+    ENGINE = INNODB 
 
-/* Create table category */
+-- Create table category
+
 CREATE TABLE category (
-    id UNSIGNED NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL AUTO_INCREMENT,
     idUser INT UNSIGNED NOT NULL,
     nameOfCategory VARCHAR(15),
     typeOperation ENUM("debit", "credit")
     PRIMARY KEY (id)
 )
-CHARACTER SET "utf8"
-ENGINE=INNOB DEFAULT
 
-/* Create table bankAccount */
+
+
+-- Create table bankAccount
 
 CREATE TABLE bankAccount(
-	id INT UNSIGNED UNIQUE NOT NULL AUTO_INCREMENT ,
+	id INT UNIQUE NOT NULL AUTO_INCREMENT ,
 	userId INT UNSIGNED NOT NULL,
 	accountName VARCHAR (40) NOT NULL,
-	accountType ENUM("checking", "savings", "joint") NOT NULL DEFAULT("checking"),
-	balance INT,
-	currency ENUM("USD", "EUR") NOT NULL DEFAULT("EUR"),
+	accountType ENUM("checking", "savings", "joint") NOT NULL DEFAULT "checking",
+	balance FLOAT,
+	currency ENUM("USD", "EUR") NOT NULL DEFAULT "EUR",
 
 	PRIMARY KEY (id),
 	FOREIGN KEY(userId) REFERENCES user(id) ON DELETE CASCADE ON UPDATE CASCADE
 	)
-CHARACTER SET "utf8"
-ENGINE=INNOB DEFAULT
+ENGINE=INNODB DEFAULT CHARSET="utf8";
 
-/* Create Opération Table */ 
+-- Create Opération Table
 
 CREATE TABLE operation (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -49,5 +51,5 @@ CREATE TABLE operation (
 	FOREIGN KEY (idBankAcc) REFERENCES bankAccount(id) ON UPDATE CASCADE ON DELETE CASCADE,
 	FOREIGN KEY (idCategory) REFERENCES category(id) ON UPDATE CASCADE ON DELETE CASCADE
 )
-ENGINE=INNODB DEFAULT CHARSET="utf-8"
+ENGINE=INNODB DEFAULT CHARSET="utf8";
 
