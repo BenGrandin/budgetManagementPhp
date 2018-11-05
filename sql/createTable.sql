@@ -6,7 +6,7 @@ CREATE TABLE user (
     PRIMARY KEY (id)
     )
     CHARACTER SET "utf8"
-    ENGINE = INNODB
+    ENGINE = INNODB DEFAULT
 
 /* Create table category */
 CREATE TABLE category (
@@ -17,7 +17,23 @@ CREATE TABLE category (
     PRIMARY KEY (id)
 )
 CHARACTER SET "utf8"
-ENGINE=INNOB
+ENGINE=INNOB DEFAULT
+
+/* Create table bankAccount */
+
+CREATE TABLE bankAccount(
+	id INT UNSIGNED UNIQUE NOT NULL AUTO_INCREMENT ,
+	userId INT UNSIGNED NOT NULL,
+	accountName VARCHAR (40) NOT NULL,
+	accountType ENUM("checking", "savings", "joint") NOT NULL DEFAULT("checking"),
+	balance INT,
+	currency ENUM("USD", "EUR") NOT NULL DEFAULT("EUR"),
+
+	PRIMARY KEY (id),
+	FOREIGN KEY(userId) REFERENCES user(id) ON DELETE CASCADE ON UPDATE CASCADE
+	)
+CHARACTER SET "utf8"
+ENGINE=INNOB DEFAULT
 
 /* Create Opération Table */ 
 
@@ -29,8 +45,9 @@ CREATE TABLE operation (
 	nameOperation VARCHAR(50) NOT NULL,
 	amountOperation INT(10) NOT NULL,
 	dateOperation date NOT NULL,
-	PRIMARY KEY (id)
+	PRIMARY KEY (id),
+	FOREIGN KEY (idBankAcc) REFERENCES bankAccount(id) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (idCategory) REFERENCES category(id) ON UPDATE CASCADE ON DELETE CASCADE
 )
 ENGINE=INNODB DEFAULT CHARSET="utf-8"
 
-/* Create bankAccount */ 
