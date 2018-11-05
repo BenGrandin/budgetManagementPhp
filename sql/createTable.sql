@@ -17,7 +17,7 @@ CREATE TABLE category (
     PRIMARY KEY (id)
 )
 CHARACTER SET "utf8"
-ENGINE= INNOB
+ENGINE=INNOB
 
 /* Create Opération Table */ 
 
