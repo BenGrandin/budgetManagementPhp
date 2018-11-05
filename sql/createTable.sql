@@ -1,18 +1,3 @@
-/* Create table bankAccount */
-
-<<<<<<< HEAD
-CREATE TABLE bankAccount(
-	id INT UNSIGNED UNIQUE NOT NULL AUTO_INCREMENT ,
-	userId INT UNSIGNED NOT NULL,
-	accountName VARCHAR (40) NOT NULL,
-	accountType ENUM("checking", "savings", "joint") NOT NULL DEFAULT("checking"),
-	balance INT,
-	currency ENUM("USD", "EUR") NOT NULL DEFAULT("EUR"),
-
-	PRIMARY KEY (id),
-	FOREIGN KEY(userId) REFERENCES user(id) ON DELETE CASCADE ON UPDATE CASCADE
-	)
-=======
 /* Create table category */
 CREATE TABLE category (
     id UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -37,4 +22,19 @@ CREATE TABLE operation (
 	PRIMARY KEY (id)
 )
 ENGINE=INNODB DEFAULT CHARSET="utf-8"
->>>>>>> master
+
+/* Create table bankAccount */
+
+CREATE TABLE bankAccount(
+	id INT UNSIGNED UNIQUE NOT NULL AUTO_INCREMENT ,
+	userId INT UNSIGNED NOT NULL,
+	accountName VARCHAR (40) NOT NULL,
+	accountType ENUM("checking", "savings", "joint") NOT NULL DEFAULT("checking"),
+	balance INT,
+	currency ENUM("USD", "EUR") NOT NULL DEFAULT("EUR"),
+
+	PRIMARY KEY (id),
+	FOREIGN KEY(userId) REFERENCES user(id) ON DELETE CASCADE ON UPDATE CASCADE
+	)
+CHARACTER SET "utf8"
+ENGINE=INNOB
