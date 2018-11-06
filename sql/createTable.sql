@@ -16,7 +16,7 @@ CREATE TABLE category (
     id INT NOT NULL AUTO_INCREMENT,
     idUser INT UNSIGNED NOT NULL,
     nameOfCategory VARCHAR(15),
-    typeOperation ENUM("debit", "credit")
+    typeOperation ENUM("debit", "credit"),
     PRIMARY KEY (id)
 )
 

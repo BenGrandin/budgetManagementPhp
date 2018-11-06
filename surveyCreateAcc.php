@@ -34,7 +34,7 @@
 
 
 <!-- Nom du compte -->
-	<div id="accName" class="box">
+	<div id="accountName" class="box">
 		<label for="inputNameAccount" >Name of your account</label>
 		<input id="inputNameAccount" type="text" name="accName">
 	</div>
