@@ -2,7 +2,7 @@
 
 function checkAccName(){
 	if(isset($_POST['createAccountForm'])){
-	 	if(0>strlen($_POST['accName'])>41){
+	 	if(strlen($_POST['accName'])>40 || strlen($_POST['accName'])==0){
  			echo "erreur"; 			
  		}else{
  			echo "tout est ok";
