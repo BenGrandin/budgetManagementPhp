@@ -1,5 +1,24 @@
+
 <html>
 <!-- Create a survey to create bank account -->
+
+
+<?php
+
+ 	if(isset($_POST['createAccountForm'])){
+ 		echo $_POST['accName'];
+ 	}
+
+ 	echo "dddd";
+
+?>
+
+
+<!-- Create a survey to create bank account -->
+
+
+<html>
+
 
 <head>
 	<title>Create an account</title>
@@ -12,7 +31,10 @@
 
 	<title> Create account</title>
 
+
 <form id="surveyAcc"  method="POST" action="">
+
+<form id="surveyAcc" name="createAccountForm" method="POST" action="">
 
 <!-- Identifiant du compte bancaire -->
 
@@ -41,8 +63,13 @@
 <!-- Devise du compte (USD et EUR) -->
 
  	<div id="survey_event_what_type" >
+
 		<label>What is the currency of your account ?</label>
 		<select name="accCurrency">
+
+		<label>What is the type of your account ?</label>
+		<select name="accType">
+
 			<option value="USD" >USD</option>
 			<option value="EUR" selected="selected">EUR</option>
 
@@ -50,6 +77,7 @@
 	</div>
 
 <!-- Button for sent -->
+
 
 	<button type="submit" name="createAccountForm" id="surveyAccButton">Send</button>
 
@@ -60,6 +88,14 @@ checkAccName();
 checkAccType();
 checkAccCurrency();
 ?>
+
+</body>
+
+</html>
+
+	<button type="submit" name="sendData" id="surveyAccButton">Send</button>
+
+</form>
 
 </body>
 
