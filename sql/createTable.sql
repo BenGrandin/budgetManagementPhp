@@ -2,19 +2,23 @@ USE DATABASE budgetManagementPhp
 
 -- Create table user
 CREATE TABLE user (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    IdUser INT UNSIGNED NOT NULL ,
+    id INT UNIQUE UNSIGNED NOT NULL AUTO_INCREMENT,
+    IdUser INT UNIQUE NOT NULL ,
     passoword VARCHAR(20)NOT NULL,
     PRIMARY KEY (id)
     )
     CHARACTER SET "utf8"
     ENGINE = INNODB 
 
+ INSERT INTO user
+ VALUES (1, 'bengrandin@hotmail.com','12345')
+ 		(2, 'dossantosalmeidamicael@gmail.com','123456')
+ 		(3, 'sofiane.benhamed@edu.itescia.fr','1234567')
+
 -- Create table category
 
 CREATE TABLE category (
-    id INT NOT NULL AUTO_INCREMENT,
-    idUser INT UNSIGNED NOT NULL,
+    id INT UNIQUE NOT NULL AUTO_INCREMENT,
     nameOfCategory VARCHAR(15),
     typeOperation ENUM("debit", "credit"),
     PRIMARY KEY (id)
@@ -40,8 +44,8 @@ ENGINE=INNODB DEFAULT CHARSET="utf8";
 -- Create Opération Table
 
 CREATE TABLE operation (
-	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-	idOperation INT(10) NOT NULL UNIQUE,
+	id INT UNIQUE UNSIGNED NOT NULL AUTO_INCREMENT,
+	idOperation  INT(10) NOT NULL UNIQUE,
 	idBankAcc INT(10) NOT NULL,
 	idCategory INT(20) NOT NULL,
 	nameOperation VARCHAR(50) NOT NULL,

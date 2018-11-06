@@ -1,24 +1,6 @@
-
-<html>
-<!-- Create a survey to create bank account -->
-
-
-<?php
-
- 	if(isset($_POST['createAccountForm'])){
- 		echo $_POST['accName'];
- 	}
-
- 	echo "dddd";
-
-?>
-
-
-<!-- Create a survey to create bank account -->
-
-
 <html>
 
+<!-- Create a survey to create bank account -->
 
 <head>
 	<title>Create an account</title>
@@ -60,15 +42,21 @@
 		</select>
 	</div>
 
+<!-- Balance account -->
+
+	<div id="accountBalance" class="box">
+		<label for="inputBalanceAccount" >Balance of your account</label>
+		<input id="inputBalanceAccount" type="text" name="accBalance">
+	</div>
+
+
+
 <!-- Devise du compte (USD et EUR) -->
 
  	<div id="survey_event_what_type" >
 
 		<label>What is the currency of your account ?</label>
 		<select name="accCurrency">
-
-		<label>What is the type of your account ?</label>
-		<select name="accType">
 
 			<option value="USD" >USD</option>
 			<option value="EUR" selected="selected">EUR</option>
@@ -84,18 +72,34 @@
 </form>
 
 <?php   include_once 'function/checkSurvey.php';
-checkAccName();
-checkAccType();
-checkAccCurrency();
+
+checkAll();
+
+	
+function db_connect() {
+
+	try {
+	
+	$host 	  = "localhost";
+	$dbname   = "budgetManagementPhp";
+	$user 	  = "root";
+	$password = "root";
+
+	$db = new PDO(
+		"mysql:host=$host;dbname=$dbname",
+		$user,
+		$password,
+		array(PDO::MYSQL_ATTR_INIT_COMMAND)
+	);
+	
+	return $db;
+	}
+	catch(Exception $e) {
+		die( 'Erreur : ' . $e->getMessage());
+	}
+
+}
 ?>
-
-</body>
-
-</html>
-
-	<button type="submit" name="sendData" id="surveyAccButton">Send</button>
-
-</form>
 
 </body>
 
