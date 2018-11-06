@@ -1,17 +1,5 @@
-<?php
-
- 	if(isset($_POST['createAccountForm'])){
- 		echo $_POST['accType'];
- 	}
-
-
-?>
-
-
-<!-- Create a survey to create bank account -->
-
-
 <html>
+<!-- Create a survey to create bank account -->
 
 <head>
 	<title>Create an account</title>
@@ -67,7 +55,12 @@
 
 </form>
 
+<?php   include_once 'function/checkSurvey.php';
+checkAccName();
+checkAccType();
+checkAccCurrency();
+?>
+
 </body>
 
 </html>
-
