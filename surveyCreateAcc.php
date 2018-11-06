@@ -1,10 +1,9 @@
 <?php
 
  	if(isset($_POST['createAccountForm'])){
- 		echo $_POST['accName'];
+ 		echo $_POST['accType'];
  	}
 
- 	echo "fghjk";
 
 ?>
 
@@ -25,7 +24,7 @@
 
 	<title> Create account</title>
 
-<form id="surveyAcc" name="createAccountForm" method="POST" action="">
+<form id="surveyAcc"  method="POST" action="">
 
 <!-- Identifiant du compte bancaire -->
 
@@ -34,7 +33,7 @@
 
 
 <!-- Nom du compte -->
-	<div id="accName" class="box">
+	<div id="accountName" class="box">
 		<label for="inputNameAccount" >Name of your account</label>
 		<input id="inputNameAccount" type="text" name="accName">
 	</div>
@@ -54,8 +53,8 @@
 <!-- Devise du compte (USD et EUR) -->
 
  	<div id="survey_event_what_type" >
-		<label>What is the type of your account ?</label>
-		<select name="accType">
+		<label>What is the currency of your account ?</label>
+		<select name="accCurrency">
 			<option value="USD" >USD</option>
 			<option value="EUR" selected="selected">EUR</option>
 
@@ -64,7 +63,7 @@
 
 <!-- Button for sent -->
 
-	<button type="submit" name="sendData" id="surveyAccButton">Send</button>
+	<button type="submit" name="createAccountForm" id="surveyAccButton">Send</button>
 
 </form>
 
