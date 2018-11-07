@@ -1,42 +1,52 @@
 <?php
 
+include_once 'db_connect.php';
+
 /* Chekc accName and accType and accBalance and accCurrency */
 
 function checkAll(){
+
 	$availableAccType = ['savings', 'checking', 'joint'];
 	$availableAccCurrency = ['EUR', 'USD'];
 
+
 	if(isset($_POST['createAccountForm'])){
 
-		if( (strlen($_POST['accName'])>40) || (strlen($_POST['accName'])==0) )
+	$accName = $_POST['accName'];
+	$accType = $_POST['accType'];
+	$accBalance = $_POST['accBalance'];
+	$accCurrency = $_POST['accCurrency'];
+
+		if( (strlen($accName)>40) || (strlen($accName)==0) )
 		 {
-		echo "error accName";
+			$message = "Name your account between 1 and 40";
 		}
-		elseif (!in_array($_POST['accType'], $availableAccType)) {
-			echo "error accType";
+		elseif (!in_array($accType, $availableAccType)) {
+			$message = "error accType";
 		}
-		elseif (!is_numeric($_POST['accBalance'])) {
-			echo "error accBalance";
+		elseif (!is_numeric($accBalance)) {
+			$message = "Enter a balance amount";
 		}
-		elseif (!in_array($_POST['accCurrency'], $availableAccCurrency)) {
-			echo "accCurrency";
+		elseif (!in_array($accCurrency, $availableAccCurrency)) {
+			$message = "accCurrency";
 		}
 		else {
-			echo "everything all right";
-			/*
-			/* Connect to the bdd 
+
+			/* Connect to the bdd */
 			$db = db_connect();
 
-			/* Preration of the request 
+			/*Preration of the request */
 
-			$req = $db -> prepare("SELECT * FROM bankAccount WHERE name = :bob");
-			$req->execute(array("bob" => $_POST['accName']));
-			echo name;
-			*/
+			$req = $db -> prepare("INSERT INTO bankAccount(userID,accountName,accountType,balance,currency) VALUES (:userID,:accountName,:accountType,:balance,:currency);");
+			$req->execute(array("userID" =>1,"accountName"=>$accName,"accountType"=>$accType,"balance"=>$accBalance,"currency"=>$accCurrency));
+			$message = "Your account has been created";
+
+			
 		}
+
+		header('Location: ../surveyCreateAcc.php?message=' . $message);
 	}
 }
-
 
 /* Check account name between 1 and 40 */
 
@@ -93,6 +103,8 @@ function checkAccType(){
  		}
  	}
  }
+
+checkALL();
 
 
 

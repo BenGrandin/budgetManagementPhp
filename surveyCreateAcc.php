@@ -13,10 +13,7 @@
 
 	<title> Create account</title>
 
-
-<form id="surveyAcc"  method="POST" action="">
-
-<form id="surveyAcc" name="createAccountForm" method="POST" action="">
+<form id="surveyAcc" name="createAccountForm" method="POST" action="function/checkSurvey.php">
 
 <!-- Identifiant du compte bancaire -->
 
@@ -31,7 +28,7 @@
 	</div>
 
 
- <!-- Type de compte (courant, épargne et compte joint)  Provision du compte -->
+ <!-- Type de compte (courant, épargne et compte joint) -->
 
  	<div id="survey_event_what_type" >
 		<label>What is the type of your account ?</label>
@@ -66,40 +63,10 @@
 
 <!-- Button for sent -->
 
-
 	<button type="submit" name="createAccountForm" id="surveyAccButton">Send</button>
 
 </form>
-
-<?php   include_once 'function/checkSurvey.php';
-
-checkAll();
-
-	
-function db_connect() {
-
-	try {
-	
-	$host 	  = "localhost";
-	$dbname   = "budgetManagementPhp";
-	$user 	  = "root";
-	$password = "root";
-
-	$db = new PDO(
-		"mysql:host=$host;dbname=$dbname",
-		$user,
-		$password,
-		array(PDO::MYSQL_ATTR_INIT_COMMAND)
-	);
-	
-	return $db;
-	}
-	catch(Exception $e) {
-		die( 'Erreur : ' . $e->getMessage());
-	}
-
-}
-?>
+<?= isset($_GET['message']) ? $_GET['message'] : ''; ?>
 
 </body>
 
