@@ -1,14 +1,16 @@
 <?php
+session_start();
+
+$_SESSION['userId']=1;
 
 include_once 'db_connect.php';
 
-/* Chekc accName and accType and accBalance and accCurrency */
+/* Check accName and accType and accBalance and accCurrency */
 
 function checkAll(){
 
 	$availableAccType = ['savings', 'checking', 'joint'];
 	$availableAccCurrency = ['EUR', 'USD'];
-
 
 	if(isset($_POST['createAccountForm'])){
 
@@ -17,8 +19,21 @@ function checkAll(){
 	$accBalance = $_POST['accBalance'];
 	$accCurrency = $_POST['accCurrency'];
 
-		if( (strlen($accName)>40) || (strlen($accName)==0) )
-		 {
+	$db = db_connect();
+
+	/* Request check accNumber */
+	$req = $db->prepare("SELECT COUNT(userId) as accNumber FROM bankAccount WHERE userId=:userId");
+	$req->execute(array("userId" => $_SESSION['userId']));
+
+	$data = $req->fetch();
+
+	$accNummber = $data['accNumber'];
+
+	/* Check all condition of bankAccount */
+	if ( $accNumber >= 10) {
+		$message = "You reach the maximum of 10 accounts per user";
+		}
+		elseif( (strlen($accName)>40) || (strlen($accName)==0) ){
 			$message = "Name your account between 1 and 40";
 		}
 		elseif (!in_array($accType, $availableAccType)) {
@@ -40,8 +55,7 @@ function checkAll(){
 			$req = $db -> prepare("INSERT INTO bankAccount(userID,accountName,accountType,balance,currency) VALUES (:userID,:accountName,:accountType,:balance,:currency);");
 			$req->execute(array("userID" =>1,"accountName"=>$accName,"accountType"=>$accType,"balance"=>$accBalance,"currency"=>$accCurrency));
 			$message = "Your account has been created";
-
-			
+	
 		}
 
 		header('Location: ../surveyCreateAcc.php?message=' . $message);
@@ -105,6 +119,3 @@ function checkAccType(){
  }
 
 checkALL();
-
-
-
