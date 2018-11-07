@@ -3,7 +3,7 @@ USE DATABASE budgetManagementPhp
 -- Create table user
 CREATE TABLE user (
     id INT UNIQUE UNSIGNED NOT NULL AUTO_INCREMENT,
-    IdUser INT UNIQUE NOT NULL ,
+    mailUser VARCHAR(20) UNIQUE NOT NULL ,
     passoword VARCHAR(20)NOT NULL,
     PRIMARY KEY (id)
     )
@@ -11,9 +11,9 @@ CREATE TABLE user (
     ENGINE = INNODB 
 
  INSERT INTO user
- VALUES (1, 'bengrandin@hotmail.com','12345')
- 		(2, 'dossantosalmeidamicael@gmail.com','123456')
- 		(3, 'sofiane.benhamed@edu.itescia.fr','1234567')
+ VALUES (1, 'bengrandin@hotmail.com','12345'),
+ 		(2, 'dossantosalmeidamicael@gmail.com','123456'),
+ 		(3, 'sofiane.benhamed@edu.itescia.fr','1234567');
 
 -- Create table category
 
