@@ -41,6 +41,15 @@ CREATE TABLE bankAccount(
 	)
 ENGINE=INNODB DEFAULT CHARSET="utf8";
 
+INSERT INTO bankAccount
+VALUES  (2, 'mikaCheck','checking','211','EUR'),
+		(2, 'mikaCheck2','checking','222','EUR'),
+		(2, 'mikaCheck3','checking','233','EUR'),
+		(3, 'sofianeCheck1','checking','311','EUR'),
+		(3, 'sofianeCheck2','checking','322','EUR');
+
+
+
 -- Create Opération Table
 
 CREATE TABLE operation (
