@@ -16,35 +16,39 @@ include_once 'function/db_connect.php';
     <script src="../js/index.js"></script>
 </head>
 <body>
-    <div class="uk-section uk-section-primary">
-        <div class="uk-container">
-            <h1>Welcome</h1>
-            <button id="btn" class="uk-button uk-button-primary">Delete</button>
-        </div>
-    </div>
-</body>
+    <h1>Welcome</h1>
 
 <?php
 
-    $db= db_connect();
+    function displayAcc(){
+        $db= db_connect();
 
-    $req = $db->prepare("SELECT * FROM bankAccount WHERE userId=:userId");
-    $req->execute(array("userId" => $_SESSION['userId']));
+        $req = $db->prepare("SELECT * FROM bankAccount WHERE userId=:userId");
+        $req->execute(array("userId" => $_SESSION['userId']));
 
-    $data = $req->fetchAll();
+        $data = $req->fetchAll();
 
-    foreach($data as $row) {
+        foreach($data as $row) {
 
-        echo "<form method='post' action=''>";
+            echo "<form method='post' action=''>";
 
-            echo htmlspecialchars($row['accountName'].' '.$row['accountType'].' '.$row['balance'].' '.$row['currency']);
+                echo htmlspecialchars($row['accountName'].' '.$row['accountType'].' '.$row['balance'].' '.$row['currency']);
 
-            echo '<button type="submit" name"deleteAccont" value="' . $row['id'] . '">Delete</button>';
+                echo '<button type="submit" name"deleteAccont" value="' . $row['id'] . '">Delete</button>';
 
 
-        echo "</form>";
-       }  
+            echo "</form>";
+           }  
+    }
+
+    function displayAcc();
+
+    $req = $db->prepare("DELETE FROM bankAccount WHERE ")
 
 ?>
+
+</body>
+
+
 
 </html>
