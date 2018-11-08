@@ -1,19 +1,15 @@
 <?php
-<<<<<<< HEAD
 
-=======
 session_start();
 
 $_SESSION['userId']=1;
 
 include_once 'function/db_connect.php';
->>>>>>> master
 
 ?>
 
 <html>
 
-<<<<<<< HEAD
 
 <head>
 
@@ -39,7 +35,7 @@ include_once 'function/db_connect.php';
 
 </html>
 	
-=======
+
 <head>
     <title>My account</title>
     <meta charset="utf-8">
@@ -83,4 +79,3 @@ include_once 'function/db_connect.php';
 
 
 </html>
->>>>>>> master
