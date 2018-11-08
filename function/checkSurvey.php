@@ -1,9 +1,11 @@
 <?php
 session_start();
 
-$_SESSION['userId']=1;
+$_SESSION['userId']=2;
 
 include_once 'db_connect.php';
+
+checkALL();
 
 /* Check accName and accType and accBalance and accCurrency */
 
@@ -118,4 +120,4 @@ function checkAccType(){
  	}
  }
 
-checkALL();
+

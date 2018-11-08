@@ -7,13 +7,14 @@
 	<meta charset="utf-8">
 	<meta name="author" content="Benjammin GRANDIN Micael DOS SANTOS Sofiane BENHAMED" >
 	<meta name="description" content="survey account creation">
+	
 </head>
 
 <body>
 
 	<title> Create account</title>
 
-<form id="surveyAcc" name="createAccountForm" method="POST" action="function/checkSurvey.php">
+<form id="surveyAcc" name="createAccountForm" method="POST" action="function/checkSurvey.php"> <!-- ne renvoi pas.. -->
 
 <!-- Identifiant du compte bancaire -->
 
