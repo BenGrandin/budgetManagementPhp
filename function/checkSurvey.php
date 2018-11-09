@@ -121,3 +121,24 @@ function checkAccType(){
  }
 
 
+
+echo checkSelector($availableAccCurrency, $_POST['current'],"name")
+  function checkSelector($array, $value, $message){
+
+  	if(!in_array($array, $value,$message)){
+  		return $message;
+  	}else{
+  		return true;
+  	}
+ }
+
+/*
+ checkSelector(['EUR', 'USD'], $_POST['currency'], "Votre devise n'esrt ") */
+
+
+
+function square(a){
+	a= a*a;
+	return a;
+}
+

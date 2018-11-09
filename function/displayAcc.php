@@ -1,5 +1,6 @@
 <?php
     include_once 'db_connect.php';
+
 function displayAcc(){
 	$db= db_connect();
     $req = $db->prepare("SELECT * FROM bankAccount WHERE userId=:userId");
@@ -11,9 +12,17 @@ function displayAcc(){
 
     	echo "<form method='post' action='function/deleteAcc.php'>";
 
-        echo htmlspecialchars($row['accountName'].' '.$row['accountType'].' '.$row['balance'].' '.$row['currency']);
+            echo htmlspecialchars($row['accountName'].' '.$row['accountType'].' '.$row['balance'].' '.$row['currency']);
 
-        echo '<button type="submit" name="deleteAccont" value="' . $row['id'] . '">Delete</button>';
+            echo '<button type="submit" name="deleteAcc" value="' . $row['id'] . '">Delete</button>';
+
+        echo "</form>";
+
+
+
+        echo "<form method='post' action='function/modifyAcc.php'>";
+
+            echo '<button type="submit" name="modifyAcc" value="' . $row['id'] . '">Modify</button>';
 
         echo "</form>";
     }  

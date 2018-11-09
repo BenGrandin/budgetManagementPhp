@@ -11,13 +11,18 @@
 <body>
     <h1>Manipulate confirm dialog</h1>
 
+    <form name="createAcc" action="surveyCreateAcc.php">
+    	<button name="createAcc" >
+			Create an account
+    	</button>
+	</form>
+
 <?php
 	session_start();
 
-	$_SESSION['userId']=2;
+	$_SESSION['userId']=1;
 
     include_once 'function/displayAcc.php';
-    include_once 'function/deleteAcc.php';
 
     displayAcc();
 

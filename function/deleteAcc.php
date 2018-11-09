@@ -8,11 +8,15 @@ include_once 'db_connect.php';
 	echo "</form>";
 
 function deleteAcc(){
-    $db= db_connect();
 
-    $req = $db->prepare("DELETE FROM bankAccount WHERE id=:id");
-    $req->execute(array("id" => 2));
+	if (isset($_POST['deleteAcc'])){
+	    $db= db_connect();
 
+	    $req = $db->prepare("DELETE FROM bankAccount WHERE id=:id");
+	    $req->execute(array("id" => $_POST['deleteAcc']));
+
+	    echo 'Your account '.$_POST['deleteAcc'].' has been deleted';
+	}
 }
 
 deleteAcc();

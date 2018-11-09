@@ -14,7 +14,7 @@
 
 	<title> Create account</title>
 
-<form id="surveyAcc" name="createAccountForm" method="POST" action="function/checkSurvey.php"> <!-- ne renvoi pas.. -->
+<form id="surveyAcc" name="createAccForm" method="POST" action="function/checkSurvey.php"> <!-- ne renvoi pas.. -->
 
 <!-- Identifiant du compte bancaire -->
 
@@ -23,9 +23,9 @@
 
 
 <!-- Nom du compte -->
-	<div id="accountName" class="box">
-		<label for="inputNameAccount" >Name of your account</label>
-		<input id="inputNameAccount" type="text" name="accName">
+	<div id="accName" class="box">
+		<label for="inputNameAcc" >Name of your account</label>
+		<input id="inputNameAcc" type="text" name="accName">
 	</div>
 
 
@@ -43,8 +43,8 @@
 <!-- Balance account -->
 
 	<div id="accountBalance" class="box">
-		<label for="inputBalanceAccount" >Balance of your account</label>
-		<input id="inputBalanceAccount" type="text" name="accBalance">
+		<label for="inputBalanceAcc" >Balance of your account</label>
+		<input id="inputBalanceAcc" type="number" name="accBalance">
 	</div>
 
 
@@ -64,7 +64,7 @@
 
 <!-- Button for sent -->
 
-	<button type="submit" name="createAccountForm" id="surveyAccButton">Send</button>
+	<button type="submit" name="buttonCreateAccForm" id="surveyAccButton">Send</button>
 
 </form>
 <?= isset($_GET['message']) ? $_GET['message'] : ''; ?>
