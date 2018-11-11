@@ -12,7 +12,7 @@
 
 <body>
 
-	<title> Create account</title>
+	<h1> Create an account</h1>
 
 <form id="surveyAcc" name="createAccForm" method="POST" action="function/checkSurvey.php"> <!-- ne renvoi pas.. -->
 
@@ -64,9 +64,22 @@
 
 <!-- Button for sent -->
 
-	<button type="submit" name="buttonCreateAccForm" id="surveyAccButton">Send</button>
+	<button type="submit" name="buttonCreateAccForm" id="surveyAccButton">
+		Send
+	</button>
 
 </form>
+
+<!-- Form to go back to the index -->
+
+    <form name="BackToIndex" action="index.php">
+    	<button name="buttonBackToIndex" >
+			Back to index
+    	</button>
+	</form>
+
+<!-- function to display message if exist -->
+
 <?= isset($_GET['message']) ? $_GET['message'] : ''; ?>
 
 </body>
