@@ -31,9 +31,9 @@
 
  <!-- Type de compte (courant, épargne et compte joint) -->
 
- 	<div id="survey_event_what_type" >
-		<label>What is the type of your account ?</label>
-		<select name="accType">
+ 	<div id="divAccType" >
+		<label for="inputAccType" >What is the type of your account ?</label>
+		<select id="inputAccType" name="accType">
 			<option value="savings" >savings</option>
 			<option value="checking" selected="selected">checking</option>
 			<option value="joint">joint</option>
@@ -42,19 +42,19 @@
 
 <!-- Balance account -->
 
-	<div id="accountBalance" class="box">
-		<label for="inputBalanceAcc" >Balance of your account</label>
-		<input id="inputBalanceAcc" type="number" name="accBalance">
+	<div id="divAccBalance" class="box">
+		<label for="inputAccBalance" >Balance of your account</label>
+		<input id="inputAccBalance" type="number" name="accBalance">
 	</div>
 
 
 
 <!-- Devise du compte (USD et EUR) -->
 
- 	<div id="survey_event_what_type" >
+ 	<div id="divAccCurrency" >
 
-		<label>What is the currency of your account ?</label>
-		<select name="accCurrency">
+		<label for="inputAccCurrency">What is the currency of your account ?</label>
+		<select id="inputAccCurrency" name="accCurrency">
 
 			<option value="USD" >USD</option>
 			<option value="EUR" selected="selected">EUR</option>
@@ -72,7 +72,7 @@
 
 <!-- Form to go back to the index -->
 
-    <form name="BackToIndex" action="index.php">
+    <form name="backToIndex" action="index.php">
     	<button name="buttonBackToIndex" >
 			Back to index
     	</button>
