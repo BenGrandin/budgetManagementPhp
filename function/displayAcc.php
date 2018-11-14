@@ -1,5 +1,7 @@
 <?php
     include_once 'db_connect.php';
+        $_SESSION['userId']=1;
+
 
 function displayAcc(){
 	$db= db_connect();
