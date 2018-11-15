@@ -14,7 +14,7 @@ function checkAll(){
 	$availableAccType = ['savings', 'checking', 'joint'];
 	$availableAccCurrency = ['EUR', 'USD'];
 
-	if(isset($_POST['createAccountForm'])){
+	if(isset($_POST['createAccForm'])){
 
 	$accName = $_POST['accName'];
 	$accType = $_POST['accType'];
@@ -39,20 +39,20 @@ function checkAll(){
 			$message = "Name your account between 1 and 40";
 		}
 		elseif (!in_array($accType, $availableAccType)) {
-			$message = "error accType";
+			$message = "accType not available";
 		}
 		elseif (!is_numeric($accBalance)) {
-			$message = "Enter a balance amount";
+			$message = "Enter a numeric balance amount";
 		}
 		elseif (!in_array($accCurrency, $availableAccCurrency)) {
-			$message = "accCurrency";
+			$message = "accCurrency not available";
 		}
 		else {
 
 			/* Connect to the bdd */
 			$db = db_connect();
 
-			/*Preration of the request */
+			/* Request create an account */
 
 			$req = $db -> prepare("INSERT INTO bankAccount(userID,accountName,accountType,balance,currency) VALUES (:userID,:accountName,:accountType,:balance,:currency);");
 			$req->execute(array("userID" =>1,"accountName"=>$accName,"accountType"=>$accType,"balance"=>$accBalance,"currency"=>$accCurrency));
